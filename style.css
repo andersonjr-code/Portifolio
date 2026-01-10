@@ -24,6 +24,8 @@ body {
     overflow-x: hidden;
 }
 
+
+
 /* Efeitos Visuais de Fundo com Movimento Orgânico */
 .blob-portal {
     position: fixed;
@@ -52,38 +54,7 @@ body {
     animation: float-blob-2 25s ease-in-out infinite alternate-reverse;
 }
 
-/* Keyframes para movimentos diferentes */
-@keyframes float-blob-1 {
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
 
-    33% {
-        transform: translate(30px, -50px) scale(1.1);
-    }
-
-    66% {
-        transform: translate(-20px, 20px) scale(0.9);
-    }
-
-    100% {
-        transform: translate(0, 0) scale(1);
-    }
-}
-
-@keyframes float-blob-2 {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-
-    50% {
-        transform: translate(-40px, 40px) rotate(90deg);
-    }
-
-    100% {
-        transform: translate(0, 0) rotate(180deg);
-    }
-}
 
 /* Navbar */
 .navbar {
@@ -274,15 +245,36 @@ section {
     transform: translateY(-10px);
 }
 
+
+
+
 .project-img {
     height: 200px;
-    background: #252529;
-    /* Placeholder para imagem */
+    background:
+        linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.25),
+            rgba(0, 0, 0, 0.85));
+    background-size: cover;
+    background-position: center;
+    transition: all 0.4s ease;
+    transition: transform 0.9s ease-in-out;
 }
 
-.project-img.p2 {
-    background: #2a2a30;
+.project-img.imc-img {
+    background-image:
+        linear-gradient(rgba(10, 10, 12, 0.75),
+            rgba(10, 10, 12, 0.9)),
+        url("img/imc-master.png");
 }
+
+
+
+
+.project-img.dashboard-img {
+    background:
+        linear-gradient(135deg, #16161a, #1e1e24);
+}
+
 
 .project-info {
     padding: 30px;
@@ -363,6 +355,41 @@ footer p {
     opacity: 0.8;
 }
 
+
+
+/* Keyframes para movimentos diferentes */
+@keyframes float-blob-1 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, -50px) scale(1.1);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes float-blob-2 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(-40px, 40px) rotate(90deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(180deg);
+    }
+}
+
 /* Animations */
 @keyframes fadeInDown {
     from {
@@ -376,11 +403,13 @@ footer p {
     }
 }
 
+/* Pulse base (somente texto) */
 .pulse {
-    animation: pulse-animation 2s infinite;
+    animation: pulse-text 2s infinite;
 }
 
-@keyframes pulse-animation {
+/* Texto pulsando (span.status) */
+@keyframes pulse-text {
     0% {
         color: var(--text-secondary);
     }
@@ -393,6 +422,30 @@ footer p {
         color: var(--text-secondary);
     }
 }
+
+/* Badge pulsando com glow */
+.badge.pulse {
+    animation: pulse-badge 2.5s infinite;
+}
+
+/* Animação específica da badge */
+@keyframes pulse-badge {
+    0% {
+        box-shadow: 0 0 0 rgba(124, 58, 237, 0);
+        border-color: rgba(124, 58, 237, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 18px rgba(124, 58, 237, 0.6);
+        border-color: var(--accent-color);
+    }
+
+    100% {
+        box-shadow: 0 0 0 rgba(124, 58, 237, 0);
+        border-color: rgba(124, 58, 237, 0.4);
+    }
+}
+
 
 /* Responsividade */
 @media (max-width: 768px) {
