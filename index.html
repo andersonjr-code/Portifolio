@@ -5,135 +5,167 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dev Name | Fullstack Developer</title>
+
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <link href=" https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <script src="script.js" defer></script>
 </head>
 
 <body>
 
+    <!-- ================= LOADING GLASS ================= -->
+    <div id="loading">
+        <div class="glass-loader">
 
-    <div class="blob-portal-2"></div>
-    <div class="blob-portal"></div>
+            <!-- LOGO SVG PROGRESSIVO -->
+            <svg class="logo-svg" width="140" height="140" viewBox="0 0 140 140">
+                <circle id="logo-circle" cx="70" cy="70" r="60" />
+                <text x="50%" y="55%" text-anchor="middle" id="logo-text">DEV</text>
+            </svg>
 
 
-    <nav class="navbar">
-        <div class="logo">DEV<span>.PORTFOLIO</span></div>
-        <ul class="nav-links">
-            <li><a href="#about">Sobre</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projetos</a></li>
-            <li><a href="#contact" class="btn-nav">Contato</a></li>
-        </ul>
-    </nav>
 
-    <main>
-        <section class="hero">
-            <div class="badge pulse ">Disponível para novos projetos</div>
-            <h1>Fullstack Developer <span class="gradient-text">Junior</span></h1>
-            <p class="hero-subtitle">Transformando café e lógica em experiências digitais de alto impacto. Focado em
-                interfaces modernas e código escalável.</p>
-            <div class="hero-btns">
-                <a href="#projects" class="btn-primary">Explorar Projetos</a>
-                <a href="#contact" class="btn-secondary">Ver Currículo</a>
-            </div>
-        </section>
+            <p>Inicializando portfólio</p>
 
-        <section id="about" class="about">
-            <div class="section-header">
-                <h2>O Storytelling</h2>
-                <div class="line"></div>
-            </div>
-            <div class="about-content">
-                <p>Sou um entusiasta da tecnologia que acredita que o código é uma ferramenta para resolver problemas
-                    reais. Minha jornada começou na curiosidade e hoje evoluiu para a construção de aplicações robustas,
-                    com foco em performance, usabilidade e boas práticas. Estou em constante evolução, aprendendo hoje o
-                    que o mercado precisará amanhã, unindo tecnologia, lógica e criatividade para entregar soluções de
-                    valor.</p>
-            </div>
-        </section>
-
-        <section id="skills" class="skills">
-            <div class="section-header">
-                <h2>Soft Skills</h2>
+            <div class="loading-bar">
+                <span></span>
             </div>
 
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Frontend</h3>
-                    <p>HTML5, CSS3, JavaScript, React, Flexbox, Grid, Animações.</p>
-                    <span class="status">Sólido</span>
+        </div>
+    </div>
+
+    <!-- ================= CONTEÚDO ================= -->
+    <div id="content" class="content-hidden">
+
+        <div class="blob-portal-2"></div>
+        <div class="blob-portal"></div>
+
+        <nav class="navbar">
+            <div class="logo">DEV<span>.PORTFOLIO</span></div>
+            <ul class="nav-links">
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projetos</a></li>
+                <li><a href="#contact" class="btn-nav">Contato</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="hero">
+                <div class="badge pulse ">Disponível para novos projetos</div>
+                <h1>Fullstack Developer <span class="gradient-text">Junior</span></h1>
+                <p class="hero-subtitle">Transformando café e lógica em experiências digitais de alto impacto. Focado em
+                    interfaces modernas e código escalável.</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn-primary">Explorar Projetos</a>
+                    <a href="#contact" class="btn-secondary">Ver Currículo</a>
                 </div>
-                <div class="skill-card highlighted">
-                    <h3>Backend</h3>
-                    <p>Node.js, APIs REST, SQL, Lógica de Programação.</p>
-                    <span class="status pulse">Em Evolução</span>
-                </div>
-                <div class="skill-card">
-                    <h3>Ferramentas</h3>
-                    <p>Git, GitHub, VS Code, Figma.</p>
-                    <span class="status">Domínio</span>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="projects" class="projects">
-            <div class="section-header">
-                <h2>Projetos em Destaque</h2>
-            </div>
-            <div class="project-grid">
-                <div class="project-card">
-                    <div class="project-img imc-img"></div>
-                    <div class="project-info">
-                        <h4>IMC-Calculator</h4>
-                        <p>Aplicação web para cálculo de IMC com validação de dados e feedback visual em tempo real.</p>
-                        <div class="tags">
-                            <span>HTML5</span>
-                            <span>CSS Moderno</span>
-                            <span>JavaScript</span>
+            <section id="about" class="about">
+                <div class="section-header">
+                    <h2>O Storytelling</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="about-content">
+                    <p>Sou um entusiasta da tecnologia que acredita que o código é uma ferramenta para resolver
+                        problemas
+                        reais. Minha jornada começou na curiosidade e hoje evoluiu para a construção de aplicações
+                        robustas,
+                        com foco em performance, usabilidade e boas práticas. Estou em constante evolução, aprendendo
+                        hoje o
+                        que o mercado precisará amanhã, unindo tecnologia, lógica e criatividade para entregar soluções
+                        de
+                        valor.</p>
+                </div>
+            </section>
+
+            <section id="skills" class="skills">
+                <div class="section-header">
+                    <h2>Soft Skills</h2>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Frontend</h3>
+                        <p>HTML5, CSS3, JavaScript, React, Flexbox, Grid, Animações.</p>
+                        <span class="status">Sólido</span>
+                    </div>
+                    <div class="skill-card highlighted">
+                        <h3>Backend</h3>
+                        <p>Node.js, APIs REST, SQL, Lógica de Programação.</p>
+                        <span class="status pulse">Em Evolução</span>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Ferramentas</h3>
+                        <p>Git, GitHub, VS Code, Figma.</p>
+                        <span class="status">Domínio</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="projects">
+                <div class="section-header">
+                    <h2>Projetos em Destaque</h2>
+                </div>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-img imc-img"></div>
+                        <div class="project-info">
+                            <h4>IMC-Calculator</h4>
+                            <p>Aplicação web para cálculo de IMC com validação de dados e feedback visual em tempo real.
+                            </p>
+                            <div class="tags">
+                                <span>HTML5</span>
+                                <span>CSS Moderno</span>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://andersonjr-code.github.io/imc-calculator/" target="_blank">Demo</a>
+
+                                <a href="https://github.com/andersonjr-code/imc-calculator" target="_blank">GitHub</a>
+
+                            </div>
                         </div>
-                        <div class="project-links">
-                            <a href="https://andersonjr-code.github.io/imc-calculator/" target="_blank">Demo</a>
-
-                            <a href="https://github.com/andersonjr-code/imc-calculator" target="_blank">GitHub</a>
-
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img dashboard-img"></div>
+                        <div class="project-info">
+                            <h4>DevDashboard</h4>
+                            <p>Interface de gestão interna com foco em Dark Mode e UX.</p>
+                            <div class="tags">
+                                <span>UI Design</span>
+                                <span>Flexbox</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#">Demo</a>
+                                <a href="#" class="github-link">GitHub</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-img dashboard-img"></div>
-                    <div class="project-info">
-                        <h4>DevDashboard</h4>
-                        <p>Interface de gestão interna com foco em Dark Mode e UX.</p>
-                        <div class="tags">
-                            <span>UI Design</span>
-                            <span>Flexbox</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#">Demo</a>
-                            <a href="#" class="github-link">GitHub</a>
-                        </div>
+            </section>
+
+            <section id="contact" class="cta">
+                <div class="cta-box">
+                    <h2>Vamos construir o próximo nível?</h2>
+                    <p>Seja para um freelancer ou uma vaga full-time, estou pronto para codar.</p>
+                    <div class="social-links">
+                        <a href="www.linkedin.com/in/andersonjr-code" target="_blank">LinkedIn</a>
+                        <a href="https://github.com/andersonjr-code/" target="_blank">GitHub</a>
+                        <a href="mailto:andersonjrcode@gmail.com">Email</a>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </main>
 
-        <section id="contact" class="cta">
-            <div class="cta-box">
-                <h2>Vamos construir o próximo nível?</h2>
-                <p>Seja para um freelancer ou uma vaga full-time, estou pronto para codar.</p>
-                <div class="social-links">
-                    <a href="www.linkedin.com/in/andersonjr-code" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/andersonjr-code/andersonjr-code" target="_blank">GitHub</a>
-                    <a href="mailto:andersonjrcode@gmail.com">Email</a>
-                </div>
-            </div>
-        </section>
-    </main>
+        <footer>
+            <p>&copy; 2026 Desenvolvido com ☕ e CSS Puro.</p>
+        </footer>
 
-    <footer>
-        <p>&copy; 2026 Desenvolvido com ☕ e CSS Puro.</p>
-    </footer>
+    </div>
 
 </body>
 

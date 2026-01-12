@@ -355,6 +355,141 @@ footer p {
     opacity: 0.8;
 }
 
+/* ================= GLASS LOADING ================= */
+#loading {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 12, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}
+
+.glass-loader {
+    background: rgba(22, 22, 26, 0.55);
+    border-radius: 28px;
+    padding: 50px 60px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 70px rgba(124, 58, 237, 0.35);
+    text-align: center;
+}
+
+
+/* ================= SVG LOGO ================= */
+.logo-svg {
+    margin-bottom: 20px;
+}
+
+#logo-circle {
+    fill: none;
+    stroke: url(#grad);
+    stroke-width: 4;
+    stroke-dasharray: 380;
+    stroke-dashoffset: 380;
+    transition: stroke-dashoffset 0.15s linear;
+}
+
+#logo-text {
+    fill: none;
+    stroke: white;
+    stroke-width: 1;
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    transition: stroke-dashoffset 0.15s linear, fill 0.3s ease;
+}
+
+/* Barra */
+.loading-bar {
+    width: 220px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.loading-bar span {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: var(--gradient);
+    transition: width 0.15s linear;
+}
+
+#logo-circle {
+    fill: none;
+    stroke: url(#grad);
+    stroke-width: 4;
+    stroke-dasharray: 380;
+    stroke-dashoffset: 380;
+    transition: stroke-dashoffset 0.15s linear;
+}
+
+#logo-text {
+    fill: none;
+    stroke: white;
+    stroke-width: 1;
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    transition: stroke-dashoffset 0.15s linear, fill 0.3s ease;
+}
+
+/* Barra */
+.loading-bar {
+    width: 220px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.loading-bar span {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: var(--gradient);
+    transition: width 0.15s linear;
+}
+
+
+/* Conteúdo escondido */
+.content-hidden {
+    display: none;
+}
+
+/* ================= ANIMAÇÕES ================= */
+@keyframes drawCircle {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes drawText {
+    to {
+        stroke-dashoffset: 0;
+        fill: white;
+    }
+}
+
+@keyframes loadBar {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+
 
 
 /* Keyframes para movimentos diferentes */
