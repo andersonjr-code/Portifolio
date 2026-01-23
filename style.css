@@ -3,7 +3,6 @@
     --bg-dark: #0a0a0c;
     --card-bg: #16161a;
     --accent-color: #7c3aed;
-    /* Roxo vibrante */
     --accent-glow: rgba(124, 58, 237, 0.4);
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
@@ -24,9 +23,10 @@ body {
     overflow-x: hidden;
 }
 
-
-
-/* Efeitos Visuais de Fundo com Movimento Orgânico */
+/* =========================================
+   AQUI ESTÁ A ALTERAÇÃO (BLOBS)
+   Adicionado: will-change e animações otimizadas
+   ========================================= */
 .blob-portal {
     position: fixed;
     width: 500px;
@@ -37,7 +37,9 @@ body {
     z-index: -1;
     top: -100px;
     right: -100px;
-    /* Aplica a animação: nome | duração | timing | repetição | direção */
+
+    /* Otimização de GPU */
+    will-change: transform;
     animation: float-blob-1 20s ease-in-out infinite alternate;
 }
 
@@ -51,10 +53,11 @@ body {
     z-index: -1;
     bottom: -50px;
     left: -50px;
+
+    /* Otimização de GPU */
+    will-change: transform;
     animation: float-blob-2 25s ease-in-out infinite alternate-reverse;
 }
-
-
 
 /* Navbar */
 .navbar {
@@ -245,9 +248,6 @@ section {
     transform: translateY(-10px);
 }
 
-
-
-
 .project-img {
     height: 200px;
     background:
@@ -264,17 +264,13 @@ section {
     background-image:
         linear-gradient(rgba(10, 10, 12, 0.75),
             rgba(10, 10, 12, 0.9)),
-        url("img/imc-master.png");
+        url("img/imc-master.webp");
 }
-
-
-
 
 .project-img.dashboard-img {
     background:
         linear-gradient(135deg, #16161a, #1e1e24);
 }
-
 
 .project-info {
     padding: 30px;
@@ -331,27 +327,21 @@ section {
     transform: translateY(-5px);
     scale: 40px;
     box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
-
 }
 
 footer {
     padding: 40px 10%;
-    /* Espaçamento interno */
     border-top: 1px solid #222;
-    /* Linha sutil para separar */
     margin-top: 50px;
     display: flex;
     justify-content: center;
-    /* Centraliza horizontalmente */
     align-items: center;
 }
 
 footer p {
     text-align: center;
     font-size: 0.8rem;
-    /* Fonte menor (estava o padrão) */
     color: var(--text-secondary);
-    /* Usa sua variável cinza */
     opacity: 0.8;
 }
 
@@ -376,7 +366,6 @@ footer p {
     box-shadow: 0 0 70px rgba(124, 58, 237, 0.35);
     text-align: center;
 }
-
 
 /* ================= SVG LOGO ================= */
 .logo-svg {
@@ -421,45 +410,6 @@ footer p {
     transition: width 0.15s linear;
 }
 
-#logo-circle {
-    fill: none;
-    stroke: url(#grad);
-    stroke-width: 4;
-    stroke-dasharray: 380;
-    stroke-dashoffset: 380;
-    transition: stroke-dashoffset 0.15s linear;
-}
-
-#logo-text {
-    fill: none;
-    stroke: white;
-    stroke-width: 1;
-    font-size: 40px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    stroke-dasharray: 200;
-    stroke-dashoffset: 200;
-    transition: stroke-dashoffset 0.15s linear, fill 0.3s ease;
-}
-
-/* Barra */
-.loading-bar {
-    width: 220px;
-    height: 6px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.loading-bar span {
-    display: block;
-    height: 100%;
-    width: 0%;
-    background: var(--gradient);
-    transition: width 0.15s linear;
-}
-
-
 /* Conteúdo escondido */
 .content-hidden {
     display: none;
@@ -489,43 +439,7 @@ footer p {
     }
 }
 
-
-
-
-/* Keyframes para movimentos diferentes */
-@keyframes float-blob-1 {
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
-
-    33% {
-        transform: translate(30px, -50px) scale(1.1);
-    }
-
-    66% {
-        transform: translate(-20px, 20px) scale(0.9);
-    }
-
-    100% {
-        transform: translate(0, 0) scale(1);
-    }
-}
-
-@keyframes float-blob-2 {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-
-    50% {
-        transform: translate(-40px, 40px) rotate(90deg);
-    }
-
-    100% {
-        transform: translate(0, 0) rotate(180deg);
-    }
-}
-
-/* Animations */
+/* Keyframes de Animação de Entrada */
 @keyframes fadeInDown {
     from {
         opacity: 0;
@@ -543,7 +457,6 @@ footer p {
     animation: pulse-text 2s infinite;
 }
 
-/* Texto pulsando (span.status) */
 @keyframes pulse-text {
     0% {
         color: var(--text-secondary);
@@ -563,7 +476,6 @@ footer p {
     animation: pulse-badge 2.5s infinite;
 }
 
-/* Animação específica da badge */
 @keyframes pulse-badge {
     0% {
         box-shadow: 0 0 0 rgba(124, 58, 237, 0);
@@ -581,6 +493,46 @@ footer p {
     }
 }
 
+/* =========================================
+   AQUI ESTÁ A ALTERAÇÃO (KEYFRAMES)
+   Novos movimentos otimizados substituindo os antigos
+   ========================================= */
+
+@keyframes float-blob-1 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, -50px) scale(1.1);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+
+    100% {
+        transform: translate(10px, -10px) scale(1.05);
+    }
+}
+
+@keyframes float-blob-2 {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, 30px) rotate(45deg) scale(0.9);
+    }
+
+    66% {
+        transform: translate(-20px, 50px) rotate(90deg) scale(1.1);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(120deg) scale(1);
+    }
+}
 
 /* Responsividade */
 @media (max-width: 768px) {

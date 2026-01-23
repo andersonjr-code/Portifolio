@@ -1,24 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ===== BLOBS (SEU CÓDIGO) ===== */
-    const blobs = document.querySelectorAll(".blob-portal, .blob-portal-2");
-
-    blobs.forEach((blob, index) => {
-        let angle = Math.random() * Math.PI * 2;
-        const radius = 40 + index * 30;
-        const speed = 0.002 + index * 0.001;
-
-        function animate() {
-            angle += speed;
-            const x = Math.cos(angle) * radius;
-            const y = Math.sin(angle) * radius;
-
-            blob.style.transform = `translate(${x}px, ${y}px)`;
-            requestAnimationFrame(animate);
-        }
-
-        animate();
-    });
+    /* ===== BLOBS (REMVIDO - AGORA É 100% CSS) ===== */
+    // A animação foi movida para o CSS para melhor performance (GPU)
 
     /* ===== LOADING SINCRONIZADO ===== */
     window.addEventListener("load", () => {
@@ -38,28 +21,32 @@ document.addEventListener("DOMContentLoaded", () => {
             progress += 1;
 
             // Barra
-            bar.style.width = progress + "%";
+            if (bar) bar.style.width = progress + "%";
 
             // Círculo SVG
-            circle.style.strokeDashoffset =
-                totalCircle - (totalCircle * progress / 100);
+            if (circle) {
+                circle.style.strokeDashoffset = totalCircle - (totalCircle * progress / 100);
+            }
 
             // Texto SVG
-            text.style.strokeDashoffset =
-                totalText - (totalText * progress / 100);
+            if (text) {
+                text.style.strokeDashoffset = totalText - (totalText * progress / 100);
+            }
 
             if (progress >= 100) {
-                text.style.fill = "white";
+                if (text) text.style.fill = "white";
                 clearInterval(interval);
 
                 setTimeout(() => {
-                    loading.style.opacity = "0";
-                    loading.style.transition = "opacity 0.8s ease";
+                    if (loading) {
+                        loading.style.opacity = "0";
+                        loading.style.transition = "opacity 0.8s ease";
 
-                    setTimeout(() => {
-                        loading.style.display = "none";
-                        content.classList.remove("content-hidden");
-                    }, 800);
+                        setTimeout(() => {
+                            loading.style.display = "none";
+                            if (content) content.classList.remove("content-hidden");
+                        }, 800);
+                    }
                 }, 400);
             }
         }, 20); // velocidade do progresso
