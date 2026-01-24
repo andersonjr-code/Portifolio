@@ -129,6 +129,8 @@ body {
 }
 
 h1 {
+    font-display: swap;
+    contain: layout;
     font-size: clamp(2.5rem, 8vw, 4.5rem);
     font-weight: 900;
     line-height: 1.1;
