@@ -31,6 +31,24 @@ document.addEventListener("DOMContentLoaded", () => {
             // Texto SVG
             if (text) {
                 text.style.strokeDashoffset = totalText - (totalText * progress / 100);
+                // ... dentro do seu setInterval onde progress >= 100 ...
+                if (progress >= 100) {
+                    text.style.fill = "white";
+                    clearInterval(interval);
+
+                    setTimeout(() => {
+                        loading.style.opacity = "0";
+                        loading.style.transition = "opacity 0.8s ease";
+
+                        // === ADICIONE ESTA LINHA AQUI ===
+                        document.body.style.overflow = "auto";
+
+                        setTimeout(() => {
+                            loading.style.display = "none";
+                            content.classList.remove("content-hidden");
+                        }, 800);
+                    }, 400);
+                }
             }
 
             if (progress >= 100) {

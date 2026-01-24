@@ -7,11 +7,71 @@
 
     <meta name="description"
         content="Portfólio de Desenvolvedor Fullstack Junior. Especialista em HTML, CSS, JavaScript, React e Node.js.">
+    <title>Dev Name | Fullstack Developer</title>
 
-    <title>Dev Anderson Junior | Fullstack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0c;
+            --gradient: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            margin: 0;
+            overflow: hidden;
+            /* Impede scroll durante o loading */
+        }
+
+        #loading {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 10, 12, 0.9);
+            backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+        }
+
+        .glass-loader {
+            background: rgba(22, 22, 26, 0.55);
+            border-radius: 28px;
+            padding: 50px 60px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            text-align: center;
+            color: white;
+            font-family: sans-serif;
+        }
+
+        .loading-bar {
+            width: 220px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .loading-bar span {
+            display: block;
+            height: 100%;
+            width: 0%;
+            background: var(--gradient);
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"
+        media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap">
+        <link rel="stylesheet" href="style.css">
+    </noscript>
+
     <script src="script.js" defer></script>
 </head>
 
@@ -168,6 +228,10 @@
                         <a href="https://github.com/andersonjr-code/" target="_blank"
                             rel="noopener noreferrer">GitHub</a>
                         <a href="mailto:andersonjrcode@gmail.com">Email</a>
+                        <a href="https://wa.me/5551984692708?text=Quero%20clarea%20minha%20mente" target="_blank"
+                            rel="noopener noreferrer">
+                            Fale Conosco no WhatsApp
+                        </a>
                     </address>
                 </div>
             </section>
