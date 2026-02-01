@@ -107,7 +107,8 @@
                     <li><a href="#about">Sobre</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projetos</a></li>
-                    <li><a href="#contact" class="btn-nav">Contato</a></li>
+                    <li><a href="#pricing">Preços</a></li>
+                    <li><a href="#social-links" class="btn-nav">Contato</a></li>
                 </ul>
             </nav>
         </header>
@@ -171,72 +172,153 @@
                 <div class="section-header">
                     <h2>Projetos em Destaque</h2>
                 </div>
-                <div class="project-grid">
 
-                    <article class="project-card">
-                        <div class="project-img imc-img" role="img" aria-label="Interface da calculadora de IMC"></div>
-                        <div class="project-info">
-                            <h4>IMC-Calculator</h4>
-                            <p>Aplicação web para cálculo de IMC com validação de dados e feedback visual em tempo real.
-                            </p>
+                <div class="carousel-container">
+                    <button class="carousel-btn prev" id="prevBtn" aria-label="Projeto anterior">❮</button>
 
-                            <div class="tags" aria-label="Tecnologias usadas">
-                                <span>HTML5</span>
-                                <span>CSS Moderno</span>
-                                <span>JavaScript</span>
+                    <div class="carousel-track">
+                        <!-- Projeto 1 -->
+                        <article class="project-card">
+                            <div class="project-img imc-img" role="img"></div>
+                            <div class="project-info">
+                                <h4>IMC-Calculator</h4>
+                                <p>Aplicação web para cálculo de IMC com validação de dados.</p>
+                                <div class="tags"><span>HTML5</span><span>JavaScript</span></div>
+                                <div class="project-links">
+                                    <a href="#">Demo</a>
+                                    <a href="#">GitHub</a>
+                                </div>
                             </div>
+                        </article>
 
-                            <div class="project-links">
-                                <a href="https://andersonjr-code.github.io/imc-calculator/" target="_blank"
-                                    rel="noopener noreferrer">Demo</a>
-                                <a href="https://github.com/andersonjr-code/imc-calculator" target="_blank"
-                                    rel="noopener noreferrer">GitHub</a>
+                        <!-- Projeto 2 -->
+                        <article class="project-card">
+                            <div class="project-img dashboard-img" role="img"></div>
+                            <div class="project-info">
+                                <h4>DevDashboard</h4>
+                                <p>Interface de gestão interna com foco em Dark Mode e UX.</p>
+                                <div class="tags"><span>UI Design</span><span>Flexbox</span></div>
+                                <div class="project-links">
+                                    <a href="#">Demo</a>
+                                    <a href="#">GitHub</a>
+                                </div>
                             </div>
-                        </div>
-                    </article>
+                        </article>
 
-                    <article class="project-card">
-                        <div class="project-img dashboard-img" role="img"
-                            aria-label="Interface do Dashboard Administrativo"></div>
-                        <div class="project-info">
-                            <h4>DevDashboard</h4>
-                            <p>Interface de gestão interna com foco em Dark Mode e UX.</p>
-
-                            <div class="tags" aria-label="Tecnologias usadas">
-                                <span>UI Design</span>
-                                <span>Flexbox</span>
+                        <!-- Projeto 3 (Adicionado para o carrossel fluir melhor) -->
+                        <article class="project-card">
+                            <div class="project-img" style="background: linear-gradient(135deg, #7c3aed, #3b82f6);"
+                                role="img"></div>
+                            <div class="project-info">
+                                <h4>Próximo Projeto</h4>
+                                <p>Descrição do seu novo projeto incrível que virá em breve.</p>
+                                <div class="tags"><span>React</span><span>Node.js</span></div>
+                                <div class="project-links">
+                                    <a href="#">Demo</a>
+                                    <a href="#">GitHub</a>
+                                </div>
                             </div>
+                        </article>
 
-                            <div class="project-links">
-                                <a href="#">Demo</a>
-                                <a href="#" class="github-link">GitHub</a>
+                        <article class="project-card">
+                            <div class="project-img" style="background: linear-gradient(135deg, #7c3aed, #3b82f6);"
+                                role="img"></div>
+                            <div class="project-info">
+                                <h4>teste</h4>
+                                <p>Descrição do seu novo projeto incrível que virá em breve.</p>
+                                <div class="tags"><span>React</span><span>Node.js</span></div>
+                                <div class="project-links">
+                                    <a href="#">Demo</a>
+                                    <a href="#">GitHub</a>
+                                </div>
                             </div>
-                        </div>
-                    </article>
+                        </article>
+                    </div>
 
+                    <button class="carousel-btn next" id="nextBtn" aria-label="Próximo projeto">❯</button>
                 </div>
             </section>
 
-            <section id="contact" class="cta">
-                <div class="cta-box">
-                    <h2>Vamos construir o próximo nível?</h2>
-                    <p>Seja para um freelancer ou uma vaga full-time, estou pronto para codar.</p>
+            <!--Preços-->
+            <section id="pricing" class="pricing">
+                <div class="section-header">
+                    <h2>Soluções & Investimento</h2>
+                    <p>Escolha o plano ideal para o seu projeto</p>
+                </div>
 
-                    <address class="social-links">
-                        <a href="https://www.linkedin.com/in/andersonjr-code" target="_blank"
-                            rel="noopener noreferrer">LinkedIn</a>
-                        <a href="https://github.com/andersonjr-code/" target="_blank"
-                            rel="noopener noreferrer">GitHub</a>
-                        <a href="mailto:andersonjrcode@gmail.com">Email</a>
+                <!-- Container do Carrossel de Preços -->
+                <div class="pricing-carousel-container">
+                    <button class="pricing-nav-btn prev" id="prevPrice">❮</button>
 
-                    </address>
+                    <div class="pricing-track">
+                        <!-- Card 1 -->
+                        <article class="price-card">
+                            <div class="card-glow"></div>
+                            <h3>Landing Page Rápida</h3>
+                            <div class="price">R$ 100<span>,00</span></div>
+                            <ul class="features">
+                                <li><i class="check">✔</i> 1 página simples e moderna</li>
+                                <li><i class="check">✔</i> Informações do serviço/produto</li>
+                                <li><i class="check">✔</i> Botão de contato</li>
+                                <li><i class="check">✔</i> Responsivo</li>
+                            </ul>
+                            <p class="not-included">✖ Não inclui: login ou banco de dados.</p>
+                            <button class="btn-price" onclick="contatarWhats('Landing Page')">Solicitar
+                                Orçamento</button>
+                        </article>
+
+                        <!-- Card 2 (Destaque) -->
+                        <article class="price-card featured">
+                            <div class="card-glow"></div>
+                            <div class="popular-tag">Mais Completo</div>
+                            <h3>Site Profissional</h3>
+                            <div class="price">R$ 200<span>,00</span></div>
+                            <ul class="features">
+                                <li><i class="check">✔</i> 3 a 6 páginas</li>
+                                <li><i class="check">✔</i> Layout mais completo</li>
+                                <li><i class="check">✔</i> Integração redes sociais</li>
+                                <li><i class="check">✔</i> Formulário de contato</li>
+                            </ul>
+                            <p class="not-included">✖ Não inclui: área de login.</p>
+                            <button class="btn-price" onclick="contatarWhats('Site Profissional')">Solicitar
+                                Orçamento</button>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="price-card">
+                            <div class="card-glow"></div>
+                            <h3>Sistema com Login</h3>
+                            <div class="price">R$ 400<span>,00</span></div>
+                            <ul class="features">
+                                <li><i class="check">✔</i> Página de login & cadastro</li>
+                                <li><i class="check">✔</i> Painel com acesso interno</li>
+                                <li><i class="check">✔</i> Banco de dados conectado</li>
+                                <li><i class="check">✔</i> Hospedagem inclusa</li>
+                            </ul>
+                            <p class="not-included">✖ Ideal para pequenos negócios.</p>
+                            <button class="btn-price" onclick="contatarWhats('Sistema Login')">Solicitar
+                                Orçamento</button>
+                        </article>
+                    </div>
+
+                    <button class="pricing-nav-btn next" id="nextPrice">❯</button>
                 </div>
             </section>
-        </main>
+            <!--Fim preços-->
+            <address class="social-links">
+                <a href="https://www.linkedin.com/in/andersonjr-code" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/andersonjr-code/" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="mailto:andersonjrcode@gmail.com">Email</a>
 
-        <footer>
-            <p>&copy; 2026 Desenvolvido com ☕ e CSS Puro.</p>
-        </footer>
+            </address>
+    </div>
+    </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Desenvolvido com ☕ e CSS Puro.</p>
+    </footer>
 
     </div>
 

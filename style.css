@@ -24,9 +24,9 @@ body {
 }
 
 /* =========================================
-   AQUI ESTÁ A ALTERAÇÃO (BLOBS)
-   Adicionado: will-change e animações otimizadas
-   ========================================= */
+   AQUI ESTÁ A ALTERAÇÃO (BLOBS)
+   Adicionado: will-change e animações otimizadas
+   ========================================= */
 .blob-portal {
     position: fixed;
     width: 500px;
@@ -60,15 +60,22 @@ body {
 }
 
 /* Navbar */
+.navbar-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 10%;
+    padding: 2rem 3%;
     position: sticky;
     top: 0;
     backdrop-filter: blur(10px);
-    z-index: 100;
+    z-index: 9;
 }
 
 .logo {
@@ -304,6 +311,185 @@ section {
     font-size: 0.9rem;
 }
 
+/* ================= PRICING / SERVIÇOS (ATUALIZADO) ================= */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.section-header p {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.price-card {
+    /* MUDANÇA AQUI: Fundo escuro sutil com transparência (Glassmorphism Puro) */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+    border-radius: 24px;
+    padding: 40px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Efeito Hover: O card "acende" levemente e sobe */
+.price-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(124, 58, 237, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Card em Destaque (Central) */
+.price-card.featured {
+    background: rgba(124, 58, 237, 0.05);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    transform: scale(1.02);
+
+}
+
+.price-card.featured:hover {
+    transform: scale(1.02) translateY(-10px);
+    border-color: var(--accent-color);
+}
+
+/* Glow Effect (O brilho verde atrás do card permanece para dar profundidade) */
+.card-glow {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    background: rgba(34, 197, 94, 0.1);
+    /* Verde muito suave */
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.price-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.price {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 30px;
+    color: #fff;
+    display: flex;
+    align-items: flex-start;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.price span {
+    font-size: 1rem;
+    margin-top: 10px;
+    opacity: 0.7;
+    font-weight: 400;
+}
+
+.features {
+    list-style: none;
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+.features li {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    /* Cinza azulado do site */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Ícone de Check */
+.check {
+    color: var(--price-green);
+    /* Mantemos verde para indicar "sucesso/incluso" */
+    font-style: normal;
+    font-weight: bold;
+    background: rgba(34, 197, 94, 0.1);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.7rem;
+}
+
+.not-included {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 25px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Botão do Card */
+.btn-price {
+    background: transparent;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hover do Botão - Fica verde neon */
+.btn-price:hover {
+    background: var(--price-green);
+    border-color: var(--price-green);
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+    color: white;
+}
+
+/* Botão do Card Destaque (Já vem preenchido) */
+.featured .btn-price {
+    background: var(--price-green);
+    border-color: var(--price-green);
+    box-shadow: 0 5px 15px rgba(34, 197, 94, 0.2);
+}
+
+.featured .btn-price:hover {
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.6);
+    transform: scale(1.05);
+}
+
+.popular-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    font-size: 0.7rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(34, 197, 94, 0.3);
+}
+
 /* CTA Section */
 .cta-box {
     background: var(--gradient);
@@ -417,6 +603,228 @@ footer p {
     display: none;
 }
 
+/* Container do Carrossel */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 550px;
+    /* Altura fixa para acomodar os cards */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Base do Card no Carrossel */
+.project-card {
+    position: absolute;
+    width: 400px;
+    /* Largura fixa do card */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+    cursor: pointer;
+}
+
+/* Estado: Ativo (Centro) */
+.project-card.active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 10;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+}
+
+/* Estado: Anterior (Esquerda) */
+.project-card.prev {
+    opacity: 0.5;
+    pointer-events: auto;
+    z-index: 5;
+    transform: translateX(-60%) scale(0.8);
+    filter: blur(2px);
+}
+
+/* Estado: Próximo (Direita) */
+.project-card.next {
+    opacity: 0.5;
+    pointer-events: auto;
+    z-index: 5;
+    transform: translateX(60%) scale(0.8);
+    filter: blur(2px);
+}
+
+/* Botões de Navegação */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(124, 58, 237, 0.2);
+    border: 1px solid var(--accent-color);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100;
+    font-size: 1.5rem;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background: var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.carousel-btn.prev {
+    left: 20px;
+}
+
+.carousel-btn.next {
+    right: 20px;
+}
+
+/* --- CONFIGURAÇÃO DESKTOP (PADRÃO) --- */
+.pricing-carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pricing-track {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 colunas no PC */
+    gap: 25px;
+    width: 100%;
+}
+
+.pricing-nav-btn {
+    display: none;
+}
+
+/* Esconde as setas no PC */
+
+/* --- CONFIGURAÇÃO MOBILE (CARROSSEL) --- */
+@media (max-width: 900px) {
+    .pricing-carousel-container {
+        position: relative;
+        height: 650px;
+        /* Altura para os cards não cortarem */
+        perspective: 1000px;
+    }
+
+    .pricing-nav-btn {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 100;
+        background: rgba(124, 58, 237, 0.2);
+        border: 1px solid var(--accent-color);
+        color: white;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .pricing-nav-btn.prev {
+        left: 0;
+    }
+
+    .pricing-nav-btn.next {
+        right: 0;
+    }
+
+    .pricing-track {
+        display: block;
+        /* Remove a grid no celular */
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .price-card {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 280px;
+        /* Largura do card no celular */
+        margin-left: -140px;
+        /* Metade da largura para centralizar */
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* Estados do Carrossel Mobile */
+    .price-card.active {
+        opacity: 1;
+        z-index: 10;
+        transform: translateX(0) scale(1);
+        pointer-events: auto;
+    }
+
+    .price-card.prev-card {
+        opacity: 0.4;
+        z-index: 5;
+        transform: translateX(-60%) scale(0.8);
+        filter: blur(2px);
+        pointer-events: auto;
+    }
+
+    .price-card.next-card {
+        opacity: 0.4;
+        z-index: 5;
+        transform: translateX(60%) scale(0.8);
+        filter: blur(2px);
+        pointer-events: auto;
+    }
+}
+
+/* Ajuste Responsivo */
+@media (max-width: 768px) {
+    .project-card {
+        width: 85%;
+    }
+
+    .project-card.prev {
+        transform: translateX(-100%) scale(0.6);
+        opacity: 0;
+    }
+
+    .project-card.next {
+        transform: translateX(100%) scale(0.6);
+        opacity: 0;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
 /* ================= ANIMAÇÕES ================= */
 @keyframes drawCircle {
     to {
@@ -496,9 +904,9 @@ footer p {
 }
 
 /* =========================================
-   AQUI ESTÁ A ALTERAÇÃO (KEYFRAMES)
-   Novos movimentos otimizados substituindo os antigos
-   ========================================= */
+   AQUI ESTÁ A ALTERAÇÃO (KEYFRAMES)
+   Novos movimentos otimizados substituindo os antigos
+   ========================================= */
 
 @keyframes float-blob-1 {
     0% {
