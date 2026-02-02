@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oasis OS | System Profile</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap">
+    <style>
+        :root {
+            --neon-purple: #7c3aed;
+            --neon-blue: #3b82f6;
+            --bg-black: #050507;
+            --terminal-green: #00ff41;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: #fff;
+            font-family: 'Fira Code', monospace;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Moldura do Terminal */
+        .terminal-window {
+            width: 90%;
+            max-width: 900px;
+            height: 80vh;
+            background: rgba(10, 10, 12, 0.95);
+            border: 1px solid var(--neon-purple);
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Barra de Título */
+        .terminal-header {
+            background: #1a1a1e;
+            padding: 10px;
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .red {
+            background: #ff5f56;
+        }
+
+        .yellow {
+            background: #ffbd2e;
+        }
+
+        .green {
+            background: #27c93f;
+        }
+
+        /* Conteúdo do Terminal */
+        .terminal-body {
+            padding: 20px;
+            overflow-y: auto;
+            flex-grow: 1;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .command {
+            color: var(--neon-blue);
+        }
+
+        .output {
+            color: #a1a1aa;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .highlight {
+            color: var(--neon-purple);
+            font-weight: bold;
+        }
+
+        /* Cursor piscando */
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 15px;
+            background: var(--neon-blue);
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Botões Laterais (Menu de Ações) */
+        .side-menu {
+            position: absolute;
+            right: -60px;
+            top: 20%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .menu-btn {
+            background: var(--bg-black);
+            border: 1px solid var(--neon-purple);
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transition: 0.3s;
+            font-size: 12px;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .menu-btn:hover {
+            background: var(--neon-purple);
+            transform: translateX(5px);
+        }
+
+        /* SVG Decorativo */
+        .scanline {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(to right, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .side-menu {
+                display: none;
+            }
+
+            .terminal-window {
+                width: 95%;
+                height: 90vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="scanline"></div>
+
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+            <span style="margin-left: 10px; font-size: 12px; color: #666;">oasis_tech_v2.0.exe</span>
+        </div>
+
+        <div class="terminal-body" id="terminalOutput">
+            <span class="command">> inicializando_perfil.sh</span><br>
+            <span class="output">Carregando dados de Anderson Junior... [OK]</span>
+
+            <div id="dynamicText"></div>
+            <span class="cursor"></span>
+        </div>
+
+        <div class="side-menu">
+            <button class="menu-btn" onclick="runCommand('missao')">MISSÃO</button>
+            <button class="menu-btn" onclick="runCommand('stack')">STACK</button>
+            <button class="menu-btn" onclick="runCommand('contato')">CONTATO</button>
+            <button class="menu-btn" onclick="window.location.href='index.html'">VOLTAR</button>
+        </div>
+    </div>
+
+    <script>
+        const responses = {
+            intro: "Bem-vindo à Oasis Technology. Eu sou o Anderson Junior, um desenvolvedor focado em construir pontes entre ideias e realidade digital. Minha especialidade é transformar café em código de alto impacto.",
+            missao: "Nossa missão é simples: Performance máxima. Não entregamos apenas sites; entregamos ferramentas de vendas automatizadas e interfaces que retêm usuários.",
+            stack: "Sistema rodando em: HTML5, CSS3, JavaScript (ES6+), React e Node.js. Foco atual em arquitetura escalável e SEO agressivo.",
+            contato: "Pronto para o próximo nível? Envie um sinal para: andersonjrcode@gmail.com ou acione o LinkedIn."
+        };
+
+        function typeWriter(text, elementId) {
+            let i = 0;
+            const target = document.getElementById(elementId);
+            target.innerHTML = '<span class="command">> </span>';
+
+            function type() {
+                if (i < text.length) {
+                    target.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, 20);
+                }
+            }
+            type();
+        }
+
+        function runCommand(key) {
+            const output = document.getElementById('terminalOutput');
+            const newDiv = document.createElement('div');
+            newDiv.innerHTML = `<br><span class="command">> oasis --${key}</span><br><span class="output">${responses[key]}</span>`;
+            output.appendChild(newDiv);
+
+            // Auto-scroll
+            output.scrollTop = output.scrollHeight;
+        }
+
+        // Inicia com a intro
+        setTimeout(() => {
+            typeWriter(responses.intro, 'dynamicText');
+        }, 1000);
+    </script>
+</body>
+
+</html>

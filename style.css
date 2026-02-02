@@ -13,14 +13,27 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* ESSENCIAL para não vazar largura */
+}
+
+html {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /* Força a remoção do scroll lateral */
+    width: 100%;
 }
 
 body {
     background-color: var(--bg-dark);
     color: var(--text-primary);
     font-family: 'Inter', sans-serif;
-    line-height: 1.6;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     overflow-x: hidden;
+    /* Segunda trava de segurança */
 }
 
 /* =========================================
@@ -37,10 +50,10 @@ body {
     z-index: -1;
     top: -100px;
     right: -100px;
-
-    /* Otimização de GPU */
     will-change: transform;
     animation: float-blob-1 20s ease-in-out infinite alternate;
+    pointer-events: none;
+    /* Garante que não interfira em cliques */
 }
 
 .blob-portal-2 {
@@ -721,6 +734,18 @@ footer p {
     display: none;
 }
 
+
+.carousel-container,
+.pricing-carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 100vw;
+    /* Não deixa passar da largura da tela */
+    margin: 0 auto;
+    overflow: hidden;
+    /* CORTA o que sai da caixa */
+}
+
 /* Esconde as setas no PC */
 
 /* --- CONFIGURAÇÃO MOBILE (CARROSSEL) --- */
@@ -903,10 +928,7 @@ footer p {
     }
 }
 
-/* =========================================
-   AQUI ESTÁ A ALTERAÇÃO (KEYFRAMES)
-   Novos movimentos otimizados substituindo os antigos
-   ========================================= */
+
 
 @keyframes float-blob-1 {
     0% {
@@ -951,7 +973,7 @@ footer p {
     }
 
     .hero {
-        padding: 0 5%;
+        padding: 0 3%;
     }
 
     .project-grid {

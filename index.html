@@ -18,11 +18,19 @@
             --gradient: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
         }
 
+        /* TRAVA DE SEGURANÇA CONTRA SCROLL LATERAL */
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
+            width: 100%;
+        }
+
         body {
             background-color: var(--bg-dark);
             margin: 0;
-            overflow: hidden;
-            /* Impede scroll durante o loading */
+            /* overflow: hidden removido para permitir scroll vertical após carregar */
         }
 
         #loading {
@@ -61,12 +69,59 @@
             width: 0%;
             background: var(--gradient);
         }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .about-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(124, 58, 237, 0.3);
+        }
+
+        .about-card h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .about-card p {
+            font-size: 0.9rem;
+            color: #a1a1aa;
+            line-height: 1.5;
+        }
+
+        .about-footer {
+            margin-top: 40px;
+            padding: 20px;
+            text-align: center;
+            border-left: 4px solid #7c3aed;
+            background: rgba(124, 58, 237, 0.05);
+            border-radius: 0 12px 12px 0;
+        }
     </style>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"
         media="print" onload="this.media='all'">
     <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
-
+    <link rel="preload"
+        href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2"
+        as="font" type="font/woff2" crossorigin>
     <noscript>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap">
         <link rel="stylesheet" href="style.css">
@@ -124,7 +179,8 @@
                 </p>
                 <div class="hero-btns">
                     <a href="#projects" class="btn-primary">Ver Soluções</a>
-                    <a href="#contact" class="btn-secondary">Sobre Mim</a>
+
+                    <a href="/contact.html" class="btn-secondary">Sobre Mim</a>
                 </div>
             </section>
 
@@ -133,14 +189,43 @@
                     <h2>Sobre a Oasis</h2>
                     <div class="line"></div>
                 </div>
+
                 <article class="about-content">
-                    <p>A <strong>Oasis Technology</strong> é a marca que representa minha atuação profissional como
-                        desenvolvedor.
-                        Acredito que o código é uma ferramenta para alavancar negócios reais. Minha jornada técnica
-                        evoluiu da curiosidade
-                        para a construção de aplicações robustas, unindo a agilidade do Freelancer com a qualidade de
-                        Agência.
-                        Estou focado em entregar performance, usabilidade e código limpo para o mercado.</p>
+                    <p>
+                        A <strong>Oasis Technology</strong> nasceu da necessidade de conectar ideias complexas a
+                        soluções digitais simples e eficientes.
+                        Mais do que escrever linhas de código, atuamos como parceiros estratégicos para tirar projetos
+                        do papel.
+                        Unimos a agilidade do desenvolvimento freelancer com a metodologia e qualidade de uma agência
+                        digital.
+                    </p>
+
+                    <div class="about-grid">
+                        <div class="about-card">
+                            <h3>🚀 Agilidade Real</h3>
+                            <p>Sem burocracia desnecessária. Foco total em entregas rápidas e iterativas para que você
+                                veja seu projeto ganhando vida semana a semana.</p>
+                        </div>
+
+                        <div class="about-card">
+                            <h3>💎 Código Limpo</h3>
+                            <p>Utilizamos tecnologias modernas (React, Node.js) garantindo que seu sistema seja
+                                escalável, seguro e fácil de manter no futuro.</p>
+                        </div>
+
+                        <div class="about-card">
+                            <h3>🤝 Visão de Dono</h3>
+                            <p>Não entregamos apenas o que foi pedido, mas o que o seu negócio precisa. Análise crítica
+                                e sugestões de melhoria fazem parte do pacote.</p>
+                        </div>
+                    </div>
+
+                    <div class="about-footer">
+                        <p>"Meu objetivo é provar que tecnologia de ponta pode ser acessível e transformadora para
+                            qualquer tamanho de negócio."</p>
+                        <br>
+                        <strong>— Anderson Junior, Founder & Developer.</strong>
+                    </div>
                 </article>
             </section>
 
@@ -250,7 +335,7 @@
                         <article class="price-card">
                             <div class="card-glow"></div>
                             <h3>Landing Page Express</h3>
-                            <div class="price">R$ 100<span>,00</span></div>
+                            <div class="price">R$ 150<span>,00</span></div>
                             <ul class="features">
                                 <li><i class="check">✔</i> One Page moderna</li>
                                 <li><i class="check">✔</i> Apresentação de Serviço</li>
@@ -266,7 +351,7 @@
                             <div class="card-glow"></div>
                             <div class="popular-tag">Recomendado</div>
                             <h3>Site Profissional</h3>
-                            <div class="price">R$ 200<span>,00</span></div>
+                            <div class="price">R$ 300<span>,00</span></div>
                             <ul class="features">
                                 <li><i class="check">✔</i> Até 5 páginas exclusivas</li>
                                 <li><i class="check">✔</i> Design Premium Personalizado</li>
@@ -281,7 +366,7 @@
                         <article class="price-card">
                             <div class="card-glow"></div>
                             <h3>Sistema Web</h3>
-                            <div class="price">R$ 400<span>,00</span></div>
+                            <div class="price">R$ 600<span>,00</span></div>
                             <ul class="features">
                                 <li><i class="check">✔</i> Autenticação (Login/Cadastro)</li>
                                 <li><i class="check">✔</i> Painel Administrativo</li>
