@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Oasis Technology">
+  <defs>
+    <linearGradient id="cyan" x1="80" y1="70" x2="360" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22E6FF"/>
+      <stop offset="1" stop-color="#009BFF"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="420" y1="340" x2="160" y2="460" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFB020"/>
+      <stop offset="1" stop-color="#FF6A00"/>
+    </linearGradient>
+    <radialGradient id="core" cx="38%" cy="32%" r="72%">
+      <stop offset="0" stop-color="#143047"/>
+      <stop offset="0.58" stop-color="#081522"/>
+      <stop offset="1" stop-color="#03080E"/>
+    </radialGradient>
+    <filter id="cyanGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="orangeGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <circle cx="256" cy="256" r="154" fill="url(#core)" stroke="#18344A" stroke-width="12"/>
+  <circle cx="256" cy="256" r="188" fill="none" stroke="#0A1A28" stroke-width="34" opacity="0.96"/>
+
+  <circle cx="256" cy="256" r="188" fill="none" stroke="url(#cyan)" stroke-width="24" stroke-linecap="round"
+          stroke-dasharray="360 820" transform="rotate(192 256 256)" filter="url(#cyanGlow)"/>
+  <circle cx="256" cy="256" r="188" fill="none" stroke="url(#orange)" stroke-width="24" stroke-linecap="round"
+          stroke-dasharray="300 880" transform="rotate(14 256 256)" filter="url(#orangeGlow)"/>
+
+  <ellipse cx="256" cy="256" rx="218" ry="98" fill="none" stroke="#DDF8FF" stroke-width="11" stroke-linecap="round"
+           stroke-dasharray="214 1160" transform="rotate(-18 256 256)" opacity="0.95"/>
+
+  <circle cx="120" cy="126" r="9" fill="#21E5FF"/>
+  <circle cx="146" cy="111" r="7" fill="#62F2FF" opacity="0.9"/>
+  <circle cx="173" cy="102" r="5" fill="#A0F8FF" opacity="0.8"/>
+  <circle cx="386" cy="383" r="8" fill="#FF8A00"/>
+  <circle cx="405" cy="361" r="5" fill="#FFC15A" opacity="0.9"/>
+</svg>
