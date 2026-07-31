@@ -1,0 +1,20 @@
+OASIS TECHNOLOGY — PORTFÓLIO PROFISSIONAL
+
+Arquivos principais:
+- index.html: página principal
+- style.css: identidade visual e responsividade
+- script.js: menu mobile, animações e comportamento do cabeçalho
+- contact.html: redirecionamento para a seção de contato
+
+Como visualizar:
+1. Abra a pasta no VS Code.
+2. Use a extensão Live Server no arquivo index.html.
+3. Também é possível abrir index.html diretamente no navegador.
+
+Antes de publicar, confirme:
+- Número do WhatsApp: 55 51 98469-2708
+- E-mail: andersonjrcode@gmail.com
+- LinkedIn: linkedin.com/in/andersonjr-code
+- GitHub: github.com/andersonjr-code
+
+A versão foi construída em HTML, CSS e JavaScript puro para manter carregamento rápido e publicação simples em GitHub Pages, Vercel, Netlify ou hospedagem tradicional.

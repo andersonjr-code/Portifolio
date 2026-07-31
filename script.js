@@ -1,212 +1,67 @@
-document.addEventListener("DOMContentLoaded", () => {
+(() => {
+    "use strict";
 
-    /* ===== LOADING SINCRONIZADO ===== */
-    window.addEventListener("load", () => {
-        const loading = document.getElementById("loading");
-        const content = document.getElementById("content");
-        const bar = document.querySelector(".loading-bar span");
-        const circle = document.getElementById("logo-circle");
-        const text = document.getElementById("logo-text");
+    const header = document.querySelector(".site-header");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector(".main-nav");
+    const navLinks = document.querySelectorAll(".main-nav a");
+    const year = document.getElementById("current-year");
 
-        let progress = 0;
-        const totalCircle = 380;
-        const totalText = 200;
+    const updateHeader = () => {
+        if (!header) return;
+        header.classList.toggle("scrolled", window.scrollY > 18);
+    };
 
-        const interval = setInterval(() => {
-            progress += 2;
-            if (bar) bar.style.width = progress + "%";
-            if (circle) circle.style.strokeDashoffset = totalCircle - (totalCircle * progress / 100);
-            if (text) text.style.strokeDashoffset = totalText - (totalText * progress / 100);
+    const closeMenu = () => {
+        if (!menuToggle || !nav) return;
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Abrir menu");
+        nav.classList.remove("is-open");
+        document.body.classList.remove("menu-open");
+    };
 
-            if (progress >= 100) {
-                clearInterval(interval);
-                setTimeout(() => {
-                    loading.style.opacity = "0";
-                    loading.style.transition = "opacity 0.8s ease";
-                    document.body.style.overflow = "auto";
-                    setTimeout(() => {
-                        loading.style.display = "none";
-                        content.classList.remove("content-hidden");
-                    }, 800);
-                }, 400);
-            }
-        }, 30);
-    });
+    if (menuToggle && nav) {
+        menuToggle.addEventListener("click", () => {
+            const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+            menuToggle.setAttribute("aria-expanded", String(!isOpen));
+            menuToggle.setAttribute("aria-label", isOpen ? "Abrir menu" : "Fechar menu");
+            nav.classList.toggle("is-open", !isOpen);
+            document.body.classList.toggle("menu-open", !isOpen);
+        });
 
-    /* ===== LÓGICA DO CARROSSEL 3D ===== */
-    const cards = document.querySelectorAll('.project-card');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    let currentIndex = 0;
+        navLinks.forEach((link) => link.addEventListener("click", closeMenu));
 
-    function updateCarousel() {
-        cards.forEach((card, index) => {
-            card.classList.remove('active', 'prev', 'next', 'hidden');
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 900) closeMenu();
+        });
 
-            if (index === currentIndex) {
-                card.classList.add('active');
-            } else if (index === (currentIndex - 1 + cards.length) % cards.length) {
-                card.classList.add('prev');
-            } else if (index === (currentIndex + 1) % cards.length) {
-                card.classList.add('next');
-            } else {
-                card.classList.add('hidden');
-            }
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") closeMenu();
         });
     }
 
-    nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % cards.length;
-        updateCarousel();
-    });
+    const revealItems = document.querySelectorAll(".reveal");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-        updateCarousel();
-    });
-
-    // Iniciar carrossel
-    updateCarousel();
-
-    // Clique direto no card lateral para focar
-    cards.forEach((card, index) => {
-        card.addEventListener('click', () => {
-            if (index !== currentIndex) {
-                currentIndex = index;
-                updateCarousel();
-            }
-        });
-    });
-});
-
-function contatarWhats(plano) {
-    const numero = "5551984692708";
-    const mensagem = encodeURIComponent(`Olá! Tenho interesse no: ${plano}.`);
-    window.open(`https://wa.me/${numero}?text=${mensagem}`, '_blank');
-} document.addEventListener("DOMContentLoaded", () => {
-
-    /* ===== LOADING SINCRONIZADO ===== */
-    window.addEventListener("load", () => {
-        const loading = document.getElementById("loading");
-        const content = document.getElementById("content");
-        const bar = document.querySelector(".loading-bar span");
-        const circle = document.getElementById("logo-circle");
-        const text = document.getElementById("logo-text");
-
-        let progress = 0;
-        const totalCircle = 380;
-        const totalText = 200;
-
-        const interval = setInterval(() => {
-            progress += 2;
-            if (bar) bar.style.width = progress + "%";
-            if (circle) circle.style.strokeDashoffset = totalCircle - (totalCircle * progress / 100);
-            if (text) text.style.strokeDashoffset = totalText - (totalText * progress / 100);
-
-            if (progress >= 100) {
-                clearInterval(interval);
-                setTimeout(() => {
-                    loading.style.opacity = "0";
-                    loading.style.transition = "opacity 0.8s ease";
-                    document.body.style.overflow = "auto";
-                    setTimeout(() => {
-                        loading.style.display = "none";
-                        content.classList.remove("content-hidden");
-                    }, 800);
-                }, 400);
-            }
-        }, 30);
-    });
-
-    /* ===== LÓGICA DO CARROSSEL 3D ===== */
-    const cards = document.querySelectorAll('.project-card');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    let currentIndex = 0;
-
-    function updateCarousel() {
-        cards.forEach((card, index) => {
-            card.classList.remove('active', 'prev', 'next', 'hidden');
-
-            if (index === currentIndex) {
-                card.classList.add('active');
-            } else if (index === (currentIndex - 1 + cards.length) % cards.length) {
-                card.classList.add('prev');
-            } else if (index === (currentIndex + 1) % cards.length) {
-                card.classList.add('next');
-            } else {
-                card.classList.add('hidden');
-            }
-        });
-    }
-
-    nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % cards.length;
-        updateCarousel();
-    });
-
-    prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-        updateCarousel();
-    });
-
-    // Iniciar carrossel
-    updateCarousel();
-
-    // Clique direto no card lateral para focar
-    cards.forEach((card, index) => {
-        card.addEventListener('click', () => {
-            if (index !== currentIndex) {
-                currentIndex = index;
-                updateCarousel();
-            }
-        });
-    });
-});
-/* LÓGICA DO CARROSSEL DE PREÇOS (MOBILE) */
-const priceCards = document.querySelectorAll('.price-card');
-const prevPriceBtn = document.getElementById('prevPrice');
-const nextPriceBtn = document.getElementById('nextPrice');
-let currentPriceIndex = 1; // Começa no segundo card (Site Profissional)
-
-function updatePricingCarousel() {
-    // Só executa a lógica visual se a tela for menor que 900px
-    if (window.innerWidth <= 900) {
-        priceCards.forEach((card, index) => {
-            card.classList.remove('active', 'prev-card', 'next-card');
-
-            if (index === currentPriceIndex) {
-                card.classList.add('active');
-            } else if (index === (currentPriceIndex - 1 + priceCards.length) % priceCards.length) {
-                card.classList.add('prev-card');
-            } else if (index === (currentPriceIndex + 1) % priceCards.length) {
-                card.classList.add('next-card');
-            }
-        });
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+        revealItems.forEach((item) => item.classList.add("is-visible"));
     } else {
-        // Se voltar para o PC, remove as classes para a Grid funcionar
-        priceCards.forEach(card => card.classList.remove('active', 'prev-card', 'next-card'));
+        const observer = new IntersectionObserver((entries, currentObserver) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("is-visible");
+                currentObserver.unobserve(entry.target);
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: "0px 0px -45px"
+        });
+
+        revealItems.forEach((item) => observer.observe(item));
     }
-}
 
-// Botões
-nextPriceBtn.addEventListener('click', () => {
-    currentPriceIndex = (currentPriceIndex + 1) % priceCards.length;
-    updatePricingCarousel();
-});
+    if (year) year.textContent = String(new Date().getFullYear());
 
-prevPriceBtn.addEventListener('click', () => {
-    currentPriceIndex = (currentPriceIndex - 1 + priceCards.length) % priceCards.length;
-    updatePricingCarousel();
-});
-
-// Atualiza ao redimensionar a tela
-window.addEventListener('resize', updatePricingCarousel);
-
-// Inicializa
-updatePricingCarousel();
-function contatarWhats(plano) {
-    const numero = "5551984692708";
-    const mensagem = encodeURIComponent(`Olá! Tenho interesse no: ${plano}.`);
-    window.open(`https://wa.me/${numero}?text=${mensagem}`, '_blank');
-}
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
+})();
